@@ -3,9 +3,10 @@ using UEServerInstancerAPI;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
-ServerInstancer serverInstancer = new ServerInstancer();
+FleetInstancer serverInstancer = new FleetInstancer();
 
 
-app.MapGet("/bootnewserver", () => serverInstancer.RunNewServer());
+app.MapGet("/bootnewfleet", () => serverInstancer.RunNewFleet());
+app.MapGet("/newplayersearchingforfleet", () => serverInstancer.OnIncomingPlayer(new Player));
 
 app.Run();
