@@ -3,10 +3,10 @@ using System.IO;
 
 namespace UEServerInstancerAPI
 {
-    public class Server
+    public class Fleet
     {
         public Process process;
-        public Player[] players = new Player[] { };
+        public List<Player> players = new List<Player> ();
 
         public bool Run()
         {
@@ -27,7 +27,7 @@ namespace UEServerInstancerAPI
         public void AddPlayer(Player player)
         {
             player.isActive = true;
-            players.Append(player);
+            players.Add(player);
         }
 
         public bool ShutDown()

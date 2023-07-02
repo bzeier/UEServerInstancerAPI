@@ -1,30 +1,37 @@
-﻿namespace UEServerInstancerAPI
+﻿using System.Diagnostics;
+
+namespace UEServerInstancerAPI
 {
     public class FleetInstancer
     {
         public int MAX_SERVERS_ALLOWED = 10;
         public int MAX_PLAYERS_PER_FLEET = 4;
-        public Fleet[] ServerInstances = new Fleet[] { };
+        public int FLEETS = 0;
+        public List<Fleet> ServerInstances = new List<Fleet> ();
 
         public Fleet FindAvailableFleet()
         {
             foreach (Fleet fleet in ServerInstances)
             {
-                if (fleet.players.Length < MAX_PLAYERS_PER_FLEET)
+
+                if (fleet.players.Count < MAX_PLAYERS_PER_FLEET)
                     return fleet;
             }
+
             return null;
         }
 
         public void RunNewFleet()
         {
-            if (ServerInstances.Length + 1 > MAX_SERVERS_ALLOWED)
+            if (ServerInstances.Count + 1 > MAX_SERVERS_ALLOWED)
                 return;
 
             System.Diagnostics.Debug.WriteLine("Starting new server instance...");
 
             Fleet instance = new Fleet();
-            ServerInstances.Append(instance);
+            ServerInstances.Add(instance);
+            //FLEETS++;
+            Debug.WriteLine(ServerInstances.Count);
 
             if(!instance.Run())
             {
@@ -39,6 +46,12 @@
             {
                 RunNewFleet();
             }
+            else
+            {
+                availableFleet.AddPlayer(player);
+            }
+
+            Debug.WriteLine("Available fleets are sufficient");
         }
     }
 }
