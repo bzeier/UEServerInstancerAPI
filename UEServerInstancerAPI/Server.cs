@@ -11,10 +11,8 @@ namespace UEServerInstancerAPI
         public bool Run()
         {
 
-            //Debug.WriteLine(
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            Debug.WriteLine(path);
-            string[] files = Directory.GetFiles(path);
+            //string[] files = Directory.GetFiles(path);
 
             process = Process.Start(path + "/FL64.exe");
 
