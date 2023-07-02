@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "fcF6PQNu/psEk3FH1oN4cBVX5siFwjkPzERG9hKqK5k=",
+  "Source": "UEServerInstancerAPI",
+  "BasePath": "_content/UEServerInstancerAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
